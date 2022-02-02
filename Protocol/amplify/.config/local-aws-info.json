@@ -1,7 +1,0 @@
-{
-  "staging": {
-    "configLevel": "project",
-    "useProfile": false,
-    "awsConfigFilePath": "/Users/moranxu/.amplify/awscloudformation/Mpt5wVrboL"
-  }
-}
