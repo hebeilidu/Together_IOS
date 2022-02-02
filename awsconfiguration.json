@@ -1,0 +1,81 @@
+{
+    "UserAgent": "aws-amplify/cli",
+    "Version": "0.1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "us-east-2:6e7cd846-219c-4f02-8bc7-f247f20a254f",
+                "Region": "us-east-2"
+            }
+        }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "us-east-2_dddkcOxgu",
+            "AppClientId": "6t48f8vt8m9o741u26hfpidfid",
+            "Region": "us-east-2"
+        }
+    },
+    "Auth": {
+        "Default": {
+            "authenticationFlowType": "USER_SRP_AUTH",
+            "socialProviders": [],
+            "usernameAttributes": [
+                "EMAIL"
+            ],
+            "signupAttributes": [
+                "EMAIL",
+                "GIVEN_NAME",
+                "FAMILY_NAME",
+                "NICKNAME",
+                "PHONE_NUMBER",
+                "GENDER"
+            ],
+            "passwordProtectionSettings": {
+                "passwordPolicyMinLength": 8,
+                "passwordPolicyCharacters": [
+                    "REQUIRES_LOWERCASE",
+                    "REQUIRES_NUMBERS",
+                    "REQUIRES_UPPERCASE"
+                ]
+            },
+            "mfaConfiguration": "OFF",
+            "mfaTypes": [
+                "SMS"
+            ],
+            "verificationMechanisms": [
+                "EMAIL"
+            ]
+        }
+    },
+    "AppSync": {
+        "Default": {
+            "ApiUrl": "https://u3eeb23ag5forguiw65gmhomx4.appsync-api.us-east-2.amazonaws.com/graphql",
+            "Region": "us-east-2",
+            "AuthMode": "AMAZON_COGNITO_USER_POOLS",
+            "ClientDatabasePrefix": "Together2_AMAZON_COGNITO_USER_POOLS"
+        },
+        "Together2_API_KEY": {
+            "ApiUrl": "https://u3eeb23ag5forguiw65gmhomx4.appsync-api.us-east-2.amazonaws.com/graphql",
+            "Region": "us-east-2",
+            "AuthMode": "API_KEY",
+            "ApiKey": "da2-fqlkqbed6jgcjodwk23eyhhubm",
+            "ClientDatabasePrefix": "Together2_API_KEY"
+        },
+        "Together2_AWS_IAM": {
+            "ApiUrl": "https://u3eeb23ag5forguiw65gmhomx4.appsync-api.us-east-2.amazonaws.com/graphql",
+            "Region": "us-east-2",
+            "AuthMode": "AWS_IAM",
+            "ClientDatabasePrefix": "Together2_AWS_IAM"
+        }
+    },
+    "S3TransferUtility": {
+        "Default": {
+            "Bucket": "together2-storage-dbhy920ie320b42352-staging",
+            "Region": "us-east-2"
+        }
+    }
+}
