@@ -1,0 +1,175 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-together2-staging-42352-authRole",
+      "UnauthRoleArn": "arn:aws:iam::834368787490:role/amplify-together2-staging-42352-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::834368787490:role/amplify-together2-staging-42352-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-together2-staging-42352-deployment",
+      "UnauthRoleName": "amplify-together2-staging-42352-unauthRole",
+      "StackName": "amplify-together2-staging-42352",
+      "StackId": "arn:aws:cloudformation:us-east-2:834368787490:stack/amplify-together2-staging-42352/7da3e820-525e-11ec-b8f2-0a1f35db9b74",
+      "AmplifyAppId": "dbhy920ie320b",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-together2-staging-42352-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    }
+  },
+  "auth": {
+    "Together2": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL",
+          "GIVEN_NAME",
+          "FAMILY_NAME",
+          "NICKNAME",
+          "PHONE_NUMBER",
+          "GENDER"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "CreatedSNSRole": "arn:aws:iam::834368787490:role/snse9aa873f42352-staging",
+        "UserPoolId": "us-east-2_dddkcOxgu",
+        "AppClientIDWeb": "2nntqukqanjl413pc7rvq94328",
+        "AppClientID": "6t48f8vt8m9o741u26hfpidfid",
+        "IdentityPoolId": "us-east-2:6e7cd846-219c-4f02-8bc7-f247f20a254f",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:834368787490:userpool/us-east-2_dddkcOxgu",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "Together2"
+      },
+      "lastPushTimeStamp": "2021-12-03T20:49:29.964Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-together2-staging-42352-deployment/amplify-cfn-templates/auth/Together2-cloudformation-template.json",
+        "logicalId": "authTogether2"
+      }
+    }
+  },
+  "api": {
+    "Together2": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authTogether2"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 30,
+                "description": "api key description"
+              }
+            },
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "p4rdyu42efbapficcdxckujcpy",
+        "GraphQLAPIEndpointOutput": "https://u3eeb23ag5forguiw65gmhomx4.appsync-api.us-east-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-fqlkqbed6jgcjodwk23eyhhubm"
+      },
+      "lastPushTimeStamp": "2021-12-03T20:49:29.965Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-together2-staging-42352-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiTogether2"
+      }
+    },
+    "getUserAttributes": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "getUserAttributes",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "output": {
+        "ApiName": "getUserAttributes",
+        "RootUrl": "https://fgp8uyc06i.execute-api.us-east-2.amazonaws.com/staging",
+        "ApiId": "fgp8uyc06i"
+      },
+      "lastPushTimeStamp": "2021-12-03T20:49:29.966Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-together2-staging-42352-deployment/amplify-cfn-templates/api/getUserAttributes-cloudformation-template.json",
+        "logicalId": "apigetUserAttributes"
+      }
+    }
+  },
+  "storage": {
+    "s3together2storagedbhy920ie320b": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "BucketName": "together2-storage-dbhy920ie320b42352-staging",
+        "Region": "us-east-2"
+      },
+      "lastPushTimeStamp": "2021-12-03T20:49:29.967Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-together2-staging-42352-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages3together2storagedbhy920ie320b"
+      }
+    }
+  },
+  "function": {
+    "getUserAttributes": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "Together2",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "Region": "us-east-2",
+        "Arn": "arn:aws:lambda:us-east-2:834368787490:function:getUserAttributes-staging",
+        "Name": "getUserAttributes-staging",
+        "LambdaExecutionRole": "together2LambdaRole634d34e2-staging"
+      },
+      "lastPushTimeStamp": "2021-12-03T20:49:29.968Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-together2-staging-42352-deployment/amplify-cfn-templates/function/getUserAttributes-cloudformation-template.json",
+        "logicalId": "functiongetUserAttributes"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-together2-staging-42352-deployment",
+        "s3Key": "amplify-builds/getUserAttributes-456a624a495876657433-build.zip"
+      }
+    }
+  }
+}

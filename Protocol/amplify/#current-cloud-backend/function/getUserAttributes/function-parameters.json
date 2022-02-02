@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "auth": {
+      "Together2": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

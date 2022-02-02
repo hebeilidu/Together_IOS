@@ -1,0 +1,19 @@
+{
+    "AppSyncApiName": "Together2",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authTogether2",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-together2-staging-42352-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/81e6e5e661f5a857d74415c36394d2b9887753d9"
+}

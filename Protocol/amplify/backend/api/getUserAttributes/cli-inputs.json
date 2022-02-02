@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/getUserAttributes": {
+      "name": "/getUserAttributes",
+      "lambdaFunction": "getUserAttributes",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "read"
+        ],
+        "guest": [
+          "read"
+        ]
+      }
+    }
+  }
+}
